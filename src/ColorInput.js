@@ -14,7 +14,7 @@ const ColorInput = () => {
         setShow(true)
     }
 
-    //console.log('outside handleSubmit function',colorArr);
+    console.log('outside handleSubmit function',colorArr);
 
     const markup = show && <Card colors={colorArr}/>
     

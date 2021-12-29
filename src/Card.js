@@ -1,12 +1,12 @@
 import React from 'react'
 
 const Card = (props) => {
-    //const btns = props.colorArr.map(color => <button>{color}</button>)
+    const btns = props.colors.map((color, index) => <li key={index}><button>{color}</button></li>)
     
     return (
         <div className="card">
             <div className="container">
-                <h1>The colors are: {props.colors.join(",")}</h1>
+                <ul>{btns}</ul>
             </div>
         </div>
     )
