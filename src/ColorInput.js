@@ -14,15 +14,27 @@ const ColorInput = () => {
         setShow(true)
     }
 
-    console.log('outside handleSubmit function',colorArr);
+    const manipulateArr = (color) => {
+        document.getElementById("card-elm").style.backgroundColor = color;
+        const replaceIndex = colorArr.indexOf(color)
+        colorArr.splice(0, 1, colorArr.splice(replaceIndex, 1, colorArr[0])[0]);//colors are swapped
+        setColor(prevState => ([...prevState]))
+        //naive approach below
+        /*const elm = colorArr[0]
+        console.log(elm)
+        colorArr[0] = colorArr[replaceIndex]
+        colorArr[replaceIndex] = elm*/
+        
+        console.log(colorArr)
+    }
 
-    const markup = show && <Card colors={colorArr}/>
+    const markup = show && <Card colors={colorArr} update={manipulateArr}/>
     
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" id="color" ref={colorInput}/>
-                <button>Submit</button>
+                <input type="submit" value="Add" />
             </form>
             {markup}
         </div>
